@@ -1,0 +1,51 @@
+[tool.black]
+line-length = 88
+target-version = ['py312']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+force-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+exclude = '''
+/(
+  # Django migrations
+  migrations
+  # Django admin
+  | admin\.py
+  # Django settings
+  | settings\.py
+  # Django URLs
+  | urls\.py
+  # Django WSGI/ASGI
+  | wsgi\.py
+  | asgi\.py
+  # Django manage
+  | manage\.py
+)/
+'''

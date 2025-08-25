@@ -1,0 +1,100 @@
+[
+  {
+    "model": "products.brand",
+    "pk": 1,
+    "fields": {
+      "name": "Nike",
+      "description": "Just Do It. Leading athletic footwear and apparel brand.",
+      "active": true,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.brand",
+    "pk": 2,
+    "fields": {
+      "name": "Adidas",
+      "description": "Impossible is Nothing. Premium sports equipment and clothing.",
+      "active": true,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.brand",
+    "pk": 3,
+    "fields": {
+      "name": "Puma",
+      "description": "Forever Faster. Performance-driven sports lifestyle brand.",
+      "active": true,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+      "sku": "NK001",
+      "name": "Nike Air Zoom Pegasus",
+      "price": "120.00",
+      "brand": 1,
+      "active": true,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+      "sku": "NK002",
+      "name": "Nike Revolution 6",
+      "price": "80.00",
+      "brand": 1,
+      "active": true,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+      "sku": "AD001",
+      "name": "Adidas Ultraboost",
+      "price": "180.00",
+      "brand": 2,
+      "active": true,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+      "sku": "AD002",
+      "name": "Adidas Runfalcon",
+      "price": "70.00",
+      "brand": 2,
+      "active": true,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+      "sku": "PM001",
+      "name": "Puma Future Rider",
+      "price": "95.00",
+      "brand": 3,
+      "active": true,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  }
+]
