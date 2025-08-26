@@ -4,15 +4,15 @@ services:
   app:
     build: .
     command: >
-      bash -c "python manage.py collectstatic --noinput --clear
+      bash -c "cd zebrands
       && python manage.py makemigrations
       && python manage.py migrate
       && python manage.py runserver 0.0.0.0:8000"
-    container_name: product_management
+    container_name: zebrands_app
     restart: always
     env_file:
       - .env
     volumes:
       - .:/code
     ports:
-      - "8000:8000"
+      - "8001:8000"

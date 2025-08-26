@@ -23,6 +23,15 @@ help:
 	@echo "  format            - Format code with Black"
 	@echo "  format-check      - Check code formatting without changing"
 	@echo "  reset             - Full reset: clean, migrate, load fixtures"
+	@echo "  docker-build      - Build Docker image"
+	@echo "  docker-build-nc   - Build Docker image without cache"
+	@echo "  docker-start      - Start Docker container in background"
+	@echo "  docker-stop       - Stop Docker container"
+	@echo "  docker-rebuild    - Rebuild and start Docker container"
+	@echo "  docker-bash       - Access Docker container bash"
+	@echo "  docker-shell      - Access Django shell in Docker"
+	@echo "  docker-superuser  - Create superuser in Docker"
+	@echo "  docker-loaddata   - Load fixtures in Docker container"
 
 # Install dependencies
 install:
@@ -101,4 +110,41 @@ migrations-status:
 	@echo "Showing migrations status..."
 	cd $(PROJECT_DIR) && $(MANAGE) showmigrations
 
-.PHONY: help install migrate migrate-apply migrate-reset superuser load-fixtures run shell test clean format format-check reset status migrations-status
+# Docker commands
+docker-build:
+	@echo "Building Docker image..."
+	docker compose -f docker-compose.yml build
+
+docker-build-nc:
+	@echo "Building Docker image without cache..."
+	docker compose -f docker-compose.yml build --no-cache
+
+docker-start:
+	@echo "Starting Docker container in background..."
+	docker compose -f docker-compose.yml up -d
+
+docker-stop:
+	@echo "Stopping Docker container..."
+	docker compose -f docker-compose.yml stop
+
+docker-rebuild:
+	@echo "Rebuilding and starting Docker container..."
+	docker compose -f docker-compose.yml up -d --build
+
+docker-bash:
+	@echo "Accessing Docker container bash..."
+	docker compose -f docker-compose.yml exec app bash
+
+docker-shell:
+	@echo "Accessing Django shell in Docker..."
+	docker compose -f docker-compose.yml exec app bash -c "cd zebrands && python manage.py shell"
+
+docker-superuser:
+	@echo "Creating superuser in Docker..."
+	docker compose -f docker-compose.yml exec app bash -c "cd zebrands && python manage.py createsuperuser"
+
+docker-loaddata:
+	@echo "Loading fixtures in Docker container..."
+	docker compose -f docker-compose.yml exec app bash -c "cd zebrands && python manage.py loaddata fixtures/sample_data.json"
+
+.PHONY: help install migrate migrate-apply migrate-reset superuser load-fixtures run shell test clean format format-check reset status migrations-status docker-build docker-build-nc docker-start docker-stop docker-rebuild docker-bash docker-shell docker-superuser docker-loaddata
